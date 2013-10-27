@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% load markup %}
+{% block content %}
+
+{% for section in sections %}
+
+    <h1> {{ section.title }} </h1>
+    <p> {{ section.body|markdown }} </p>
+
+{% endfor %}
+
+<h1> News </h1>
+{% if not news %}
+	<p> There is no news, this makes me a sad panda :( </p>
+{% endif %}
+{% for news_title, news_date, news_body in news %}
+	<h2> {{ news_title }} </h2> <span class="date">{{ news_date }}</span>
+	<p class="news-item"> {{ news_body|markdown }} </p>
+{% endfor %}
+
+{% endblock %}

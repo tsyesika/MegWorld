@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% load markup %}
+{% block content %}
+
+{% for section in sections %}
+    <h2> {{ section.title }} </h2>
+    <p> {{ section.body|markdown }} </p>
+{% endfor %}
+
+
+<table>
+<th>Online</th>
+<th>SSL</th>
+<th>IPv6</th>
+<th>Server</th>
+<th>Location</th>
+
+{% for server in servers %}
+    <tr>
+        {% if server.online %}
+            <td><img alt="Yes" src="/static/icon-yes.gif"></td>
+        {% else %}
+            <td><img alt="No" src="/static/icon-no.gif"></td>
+        {% endif %}
+        {% if server.ssl %}
+            <td><img alt="Yes" src="/static/icon-yes.gif"</td>
+        {% else %}
+            <td><img alt="No" src="/static/icon-no.gif"></td>
+        {% endif %}
+        {% if server.ipv6 %}
+            <td><img alt="Yes" src="/static/icon-yes.gif"></td>
+        {% else %}
+            <td><img alt="No" src="/static/icon-no.gif"></td>
+        {% endif %}
+        <td>{{ server }}</td>
+        <td>{{ server.location }}</td>
+    </tr>
+
+{% endfor %}
+
+<span class="bottom">Server status last checked: {{ modified }}</span>
+
+{% endblock %}

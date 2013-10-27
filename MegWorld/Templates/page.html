@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% load markup %}
+{% block content %}
+
+{% for section in sections %}
+
+    <h1> {{ section.title }} </h1>
+    <p> {{ section.body|markdown }} </p>
+
+{% endfor %}
+
+{% endblock %}

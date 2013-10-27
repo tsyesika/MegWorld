@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title> MegWorld :: {{ page.title }} </title>
+        <link rel="stylesheet" type="text/css" href="/static/style.css">
+    </head>
+    <body>
+        <div class="heading">
+            <span class="logo">
+                <a href="/"><span class="logo-meg">Meg</span><span class="logo-world">World</span></a>
+            </span>
+            <span class="menu">
+                <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/irc">IRC</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                </ul>
+            </span>
+		</div>
+		<div class="main">
+			<div class="items">
+                {% autoescape off %}
+                {% block content %}
+                {% endblock %}
+                {% endautoescape %}
+            </div>
+
+			<!-- <p class="footer"><a rel="licence" href="http://creativecommons.org/licenses/by-nc-sa/2.0/uk/deed.en_GB"><img alt="Creative Commons Licence" src="/static/licence.png" /></a><br />Website under <a rel="licence" href="http://creativecommons.org/licenses/by-nc-sa/2.0/uk/deed.en_GB">Attribution Non-Commercial Share-Alike</a>.</p>-->
+	</div>
+    </body>
+</html>
+        

@@ -1,0 +1,26 @@
+# Ignore any non-source python files
+*.py[cod]
+
+# Ignore virtualenv stuff
+bin
+include
+lib
+lib64
+
+# Ignore python setup stuff
+sdist
+develop-eggs
+*.egg
+*.egg-info
+
+# Installer logs
+pip-log.txt
+
+# Ignore compiled translations
+*.mo
+
+# Ignore django's settings
+*settings.py*
+
+# Ignore database files
+*.db
