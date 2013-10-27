@@ -19,8 +19,5 @@ pip-log.txt
 # Ignore compiled translations
 *.mo
 
-# Ignore django's settings
-*settings.py*
-
 # Ignore database files
 *.db

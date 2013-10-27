@@ -11,7 +11,26 @@ Installing
 To install simply run the following:
 `pip install -r pip-req.txt`
 
-and then configure.
+Then make a config file in `~/.megworld_config.json` the only
+required option is `secret` which must be a long, high entropy
+string which should be kept secret at all costs. It's used to
+secure the users passwords:
+
+```
+{
+	"database":{
+		"engine": "mysql"
+		"name": "table_name",
+		"user: "my_user",
+		"password": "MySecurePass",
+		"host": "database.megworld.co.uk",
+		"port": 3333
+	},
+	"secret": "ThisIsMySuperSecretHighEntropyStringThatIKeepSecret",
+	"timezone": "Europe/London",
+	"language": "cy",
+}
+```
 
 
 Licence
