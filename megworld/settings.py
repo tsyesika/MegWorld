@@ -3,9 +3,9 @@ import os
 
 # Config paths
 paths = [
-    os.environ.get("MEGWORLD_CONFIG", "").
+    os.path.expanduser(os.environ.get("MEGWORLD_CONFIG", "")),
     os.path.expanduser("~/.megworld_config.json"),
-    "megworld.config.json",
+    "megworld_config.json",
 ]
 
 for config in paths:
@@ -19,6 +19,10 @@ for config in paths:
         finally:
             break
 
+if not isinstance(config, dict):
+    config_paths = [path for path in paths if path]
+    raise Exception("No configuration found, please place a config in one of {0}".format(", ".join(config_paths)))
+
 DEBUG = config.get("debug", True)
 TEMPLATE_DEBUG = DEBUG
 ADMINS = config.get("admins", tuple())
@@ -30,7 +34,7 @@ DATABASES = {
         "NAME": "database.db",
         "USER": "",
         "PASSWORD": "",
-        "HOST": ""
+        "HOST": "",
         "PORT": ""
     }
 }
@@ -75,7 +79,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
-ROOT_URLCONF = 'MegWorld.urls'
+ROOT_URLCONF = 'megworld.urls'
 
 WSGI_APPLICATION = 'MegWorld.wsgi.application'
 
